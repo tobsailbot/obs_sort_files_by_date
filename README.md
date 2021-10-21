@@ -1,7 +1,7 @@
 # obs_sort_files_by_date
 Script that sort OBS recorded files into folders named by date
 
-ATTENTION Only works in Python 3.6.x
+ATTENTION Only works in Python 3.6.x (select the python 3.6 path in the scripts obs section)
 
 You have to edit the move_files_to_folder.py file in order to select the origin and destination folder for the files
 
