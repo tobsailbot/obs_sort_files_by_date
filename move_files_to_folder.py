@@ -2,40 +2,30 @@ import os
 import os.path
 import shutil
 
+#os.chdir('D:\\TOBI-PC\\Descargas\\recordings test\\origen')
+#print(os.getcwd())
 
-srcdir = 'F:\\VIDEO MEDIA\\OBS\\ORIGEN\\'
+# Indicate the recordings output directory, must be the SAME as in OBS settings
+srcdir = 'D:\\TOBI-PC\\Descargas\\recordings test\\origen\\'
 
+# List of all the files in the source directory
+files = os.listdir(srcdir)
 
-# for filename in os.listdir(srcdir):
+# For every element into the "files" list do the follow:
+def createFolder():
+    for file in files: 
+        if not os.path.exists(srcdir+'OBS VIDEOS\\'+file[0:10]):  # Checks if a folder with the name of the date already exists
+            os.makedirs(srcdir+'OBS VIDEOS\\'+file[0:10]) # Creates a folder with the first 11 characters of the file name
 
-#shutil.move(srcdir+'\\2021-dec-18 11-05-01.txt',srcdir+'\\origen')
-
-archivos = os.listdir(srcdir)
-
-def crearCarpeta():
-    for archivo in archivos: #por cada elemento de la lista archivos hacer lo siguiente
-        if not os.path.exists('F:\\VIDEO MEDIA\\OBS\\OBS VIDEOS\\'+archivo[0:11]):  # checkear si existe una carpeta con el nombre de cada archivo
-            os.makedirs('F:\\VIDEO MEDIA\\OBS\\OBS VIDEOS\\'+archivo[0:11]) #crear la carpeta con los primeros 11 caracteres del string
-
- #  else:
-   #     shutil.move(srcdir+archivo,'D:\\TOBI-PC\\Escritorio\\Nueva carpeta\\destino\\'+archivo[0:11])
-
-def moverArchivos ():
-    for archivo in archivos:
-        shutil.move(srcdir+archivo,'F:\\VIDEO MEDIA\\OBS\\OBS VIDEOS\\'+archivo[0:11])
-
-crearCarpeta()
-moverArchivos()
-     
-
-            
+# Moves the files to the destiny folder that matches with the name of the files
+def moveFiles ():
+    for file in files:
+        print(srcdir+file)
+        shutil.move(srcdir+file,'D:\\TOBI-PC\\Descargas\\recordings test\\origen\\OBS VIDEOS\\'+file[0:10])
 
 
+createFolder()
+moveFiles()
 
-#archivoTest = archivos[1]
 
-#element = archivoTest[0:11]
-
-#if not os.path.exists(srcdir+'\\'+element):
-#    os.makedirs(srcdir+'\\'+element)
 
